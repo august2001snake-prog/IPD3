@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>งานพยาบาลผู้ป่วยใน</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Prompt", sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 body {
@@ -22,14 +25,15 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(0,0,0,0.5);
+  background: #6a1b9a;
   z-index: 1000;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: 15px 40px;
+  align-items: center;
+  padding: 15px 30px;
   color: white;
 }
 
@@ -42,12 +46,19 @@ body {
 .menu a {
   color: white;
   text-decoration: none;
+  font-size: 14px;
+}
+
+/* กัน header ทับ */
+body {
+  padding-top: 70px;
 }
 
 /* HERO */
 .hero {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 70px);
+  min-height: 500px;
   overflow: hidden;
 }
 
@@ -57,6 +68,7 @@ body {
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -72,27 +84,30 @@ body {
   background: rgba(0,0,0,0.4);
 }
 
+/* CONTENT */
 .content {
   position: absolute;
   top: 50%;
-  left: 8%;
+  left: 5%;
   transform: translateY(-50%);
   color: white;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .content h1 {
-  font-size: 48px;
+  font-size: clamp(26px, 5vw, 48px);
   margin-bottom: 20px;
+  line-height: 1.3;
 }
 
 .content p {
+  font-size: clamp(14px, 2vw, 18px);
   margin-bottom: 20px;
 }
 
 /* BUTTON */
 .btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 30px;
   margin-right: 10px;
   text-decoration: none;
@@ -114,7 +129,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 30px;
+  font-size: 26px;
   color: white;
   cursor: pointer;
   padding: 10px;
@@ -122,169 +137,72 @@ body {
   border-radius: 50%;
 }
 
-.arrow.left { left: 20px; }
-.arrow.right { right: 20px; }
+.arrow.left { left: 15px; }
+.arrow.right { right: 15px; }
 
+/* SECTION */
+.section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.bg-light {
+  background: #f5f5f5;
+}
+
+/* FOOTER */
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .content {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
 </style>
-</head>
-
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>งานพยาบาลผู้ป่วยใน - โรงพยาบาลมหาวิทยาลัยพะเยา</title>
-
-    <!-- SEO -->
-    <meta name="description" content="งานพยาบาลผู้ป่วยใน หอผู้ป่วยในพิเศษ โรงพยาบาลมหาวิทยาลัยพะเยา">
-
-    <!-- Google Font -->
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header class="header">
-    <div class="container nav">
-        <h1 class="logo">Nursing Unit</h1>
-
-        <nav>
-            <ul class="menu">
-                <li><a href="#about">เกี่ยวกับหน่วยงาน</a></li>
-                <li><a href="#news">ข่าวประชาสัมพันธ์</a></li>
-                <li><a href="#download">ดาว์นโหลด</a></li>
-                <li><a href="pages/personnel.html">บุคลากร</a></li>
-                <li><a href="#contact">ติดต่อเรา</a></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="nav">
+    <h2>Nursing Unit</h2>
+    <ul class="menu">
+      <li><a href="#about">เกี่ยวกับ</a></li>
+      <li><a href="#news">ข่าว</a></li>
+      <li><a href="#download">ดาวน์โหลด</a></li>
+       <li><a href="pages/personnel.html">บุคลากร</a></li>
+      <li><a href="#">ติดต่อ</a></li>
+    </ul>
+  </div>
 </header>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPD Nursing</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Prompt", sans-serif;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-/* Overlay */
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.35);
-}
-
-/* Content */
-.content {
-  position: absolute;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-  color: white;
-  max-width: 600px;
-}
-
-.content h1 {
-  font-size: 48px;
-  line-height: 1.3;
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1s forwards;
-}
-
-.content p {
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 1s 0.3s forwards;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 30px;
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #5ec7b7, #f28ca3);
-  color: white;
-}
-
-.btn-outline {
-  border: 1px solid white;
-  color: white;
-}
-
-/* Arrows */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 50%;
-}
-
-.arrow.left { left: 20px; }
-.arrow.right { right: 20px; }
-
-/* Animation */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
-
-</body>
-</html>
+<!-- HERO -->
 <div class="hero">
 
-  <!-- 🔥 ใส่รูปของคุณตรงนี้ -->
   <div class="slide active" style="background-image: url('assets/images/ห.3.jpeg');"></div>
   <div class="slide" style="background-image: url('assets/images/ห2.jpg');"></div>
   <div class="slide" style="background-image: url('assets/images/ห5.jpg');"></div>
@@ -292,7 +210,7 @@ body {
   <div class="overlay"></div>
 
   <div class="content">
-    <h1>งานการพยาบาลผู้ป่วยใน<br>หอผู้ป่วยพิเศษ 3 </h1>
+    <h1>งานการพยาบาลผู้ป่วยใน<br>หอผู้ป่วยพิเศษ 3</h1>
     <p>โรงพยาบาลมหาวิทยาลัยพะเยา</p>
     <a href="#" class="btn btn-primary">ดูข้อมูลสำคัญ</a>
     <a href="#" class="btn btn-outline">เอกสารดาวน์โหลด</a>
@@ -302,6 +220,17 @@ body {
   <div class="arrow right" onclick="nextSlide()">❯</div>
 
 </div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>เกี่ยวกับหน่วยงาน</h2>
+  <p>หน่วยงานพยาบาลผู้ป่วยใน ให้บริการดูแลผู้ป่วยด้วยมาตรฐานวิชาชีพ</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 งานพยาบาลผู้ป่วยใน</p>
+</footer>
 
 <script>
 let slides = document.querySelectorAll(".slide");
@@ -322,80 +251,8 @@ function prevSlide() {
   showSlide(index);
 }
 
-/* Auto slide */
 setInterval(nextSlide, 4000);
 </script>
-
-</body>
-</html>
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-    <div class="container">
-        <h2>เกี่ยวกับฉัน</h2>
-        <p>
-                      หน่วยงานพยาบาลผู้ป่วยใน หอผู้ป่วยพิเศษ ให้บริการดูแลรักษาผู้ป่วยด้วยมาตรฐานวิชาชีพ 
-            เน้นความปลอดภัย คุณภาพ และการดูแลแบบองค์รวม
-        </p>
-            </div>
-</section>
-
-
-<!-- ================= NEWS ================= -->
-<section id="news" class="section bg-light">
-    <div class="container">
-        <h2>ข่าวประชาสัมพันธ์</h2>
-
-        <div class="grid">
-            <div class="card">
-                <h3>ข่าวล่าสุด</h3>
-                 <ul>
-            <li>ลงทะเบียนอบรมพัฒนาศักยภาพพยาบาล ACLS for HCP มาตรฐาน TRC card ปี 2569</li>
-            <li>ประชุมวิชาการประจำปี 2569</li>
-        </ul>
-                     </div>
-
-            <div class="card">
-                <h3>ประกาศ</h3>
-                <ul>
-            <li>แจ้งเปลี่ยนแปลงเวลาเยี่ยมผู้ป่วย</li>
-            <li>รูปแบบการให้บริการหอผู้ป่วยพิเศษ ปี 2569</li>
-        </ul>
-                        </div>
-                    </div>
-</section>
-
-<!-- ================= ACTIVITY ================= -->
-<section class="section">
-    <div class="container">
-        <h2>กิจกรรมที่กำลังจะเกิดขึ้น</h2>
-        <ul>
-            <li>อบรม ACLS for HCP มาตรฐาน TRC card สำหรับบุคลากร</li>
-            <li>ประชุมวิชาการประจำปี 2569</li>
-        </ul>
-    </div>
-</section>
-
-<!-- ================= DOWNLOAD ================= -->
-<section id="download" class="section bg-light">
-    <div class="container">
-        <h2>หมวดหมู่เอกสาร</h2>
-        <ul>
-            <li><a href="#">แบบฟอร์มการรักษา</a></li>
-            <li><a href="#">คู่มือพยาบาล</a></li>
-            <li><a href="#">แนวปฏิบัติ/ข้อแนะนำหอผู้ป่วยพิเศษ</a></li>
-        </ul>
-    </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-    <div class="container">
-        <p>© 2026 งานพยาบาลผู้ป่วยใน ติดต่อเรา 7503, 7505</p>
-        <p> โรงพยาบาลมหาวิทยาลัยพะเยา คณะแพทยศาสตร์ 19/1 หมู่ 2 ถ.พหลโยธิน ต.แม่กา อ.เมืองพะเยา จ.พะเยา 56000 </p>
-    </div>
-</footer>
-
-<script src="assets/js/script.js"></script>
 
 </body>
 </html>
