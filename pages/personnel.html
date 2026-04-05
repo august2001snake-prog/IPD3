@@ -5,113 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>บุคลากร | งานพยาบาลผู้ป่วยใน</title>
 
+  <!-- Font Kodchasan จาก Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Kodchasan&display=swap" rel="stylesheet" />
+  <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
   <style>
-    :root {
-      --primary: #2EC4B6;
-      --secondary: #6C63FF;
-      --soft-bg: #F5FAFF;
-      --text-dark: #333;
-    }
+    .container.nav {
+  display: flex;
+  justify-content: flex-end; /* ให้เนวิเกชันชิดขวา */
+  align-items: center;       /* จัดแนวแนวตั้งให้ตรงกลาง */
+  padding: 0 20px;           /* เว้นขอบซ้ายขวา (ถ้าต้องการ) */
+}
+.nav ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
 
+nav ul.menu li a {
+  text-decoration: none;
+  color: #ffffff; /* หรือสีที่ต้องการ */
+}
     body {
       font-family: 'Kodchasan', sans-serif;
-      background: var(--soft-bg);
+      background: #f8f8f8;
       margin: 0;
-      color: var(--text-dark);
+      color: #333;
     }
 
     a { text-decoration: none; }
 
     /* Header */
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: #6a1b9a;
+      color: #fff;
       padding: 15px 20px;
     }
 
-    .container.nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
+    .header .logo img { height: 50px; vertical-align: middle; }
+    .header .logo span { font-weight: bold; font-size: 20px; margin-left: 10px; vertical-align: middle; }
 
-    .menu {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+    nav ul li a { color: #fff; font-weight: 500; transition: 0.2s; }
+    nav ul li a:hover { color: #ffdd00; }
 
-    .menu a {
-      color: #fff;
-      font-weight: 500;
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #d56af3;
+      color: #fcfcfc;
+      padding: 8px;
+      z-index: 100;
       transition: 0.3s;
     }
-
-    .menu a:hover {
-      color: #ffdd00;
-      border-bottom: 2px solid #ffdd00;
-    }
+    .skip-link:focus { top: 0; }
 
     /* Page title */
     .page-title {
-      padding: 30px 20px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      border-radius: 0 0 20px 20px;
+      text-align: left;
+      padding: 20px 20px;
+      background: #8e24aa;
     }
+    .page-title h1 { margin: 0; font-size: 24px; color: #ffffff; }
+    .page-title p { margin-top: 10px; font-size: 18px; color: #ffffff; }
 
     /* Section */
-    .section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
+    .section { padding: 40px 20px; max-width: 1200px; margin: auto; }
     .center { text-align: center; }
 
     /* Card */
     .card {
       background: #fff;
-      border-radius: 16px;
-      padding: 18px;
+      border-radius: 12px;
+      padding: 16px;
       text-align: center;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      transition: 0.3s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* Images */
-    .person-photo {
+    /* Person photo */
+    .person-photo, .head-photo {
       width: 100%;
+      max-width: 690px;
+      height: auto;
       border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .head-photo {
-      width: 220px;
-      border-radius: 12px;
+      object-fit: cover;
       margin-bottom: 15px;
     }
 
-    /* Contact */
-    .contact {
-      font-size: 14px;
-      color: #666;
+    .head-photo {
+      max-width: 250px;      /* จำกัดความกว้างสูงสุด */
+      width: 100%;           /* ให้ขนาดรูปเต็มความกว้าง container แต่ไม่เกิน max-width */
+      height: auto;          /* รักษาสัดส่วนภาพ */
+      border-radius: 12px;   /* มุมโค้งมน */
+      display: block;        /* ทำให้สามารถตั้ง margin auto ได้ */
+      margin: 0 auto 20px;   /* จัดกึ่งกลางและเว้นช่องว่างล่าง 20px */
+      object-fit: cover;     /* ตัดภาพให้เต็มกรอบโดยไม่ผิดสัดส่วน */
     }
 
-    .contact .material-icons {
-      color: var(--primary);
-      vertical-align: middle;
-      margin-right: 5px;
-    }
+    /* Contact info */
+    .contact { font-size: 14px; color: #555; margin-top: 10px; }
+    .contact span.material-icons { vertical-align: middle; color: #8e24aa; margin-right: 5px; }
 
     /* Grid */
     .grid {
@@ -120,99 +123,182 @@
       gap: 20px;
     }
 
-    @media(max-width: 1024px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    @media(max-width: 768px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media(max-width: 480px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+    /* Responsive */
+    @media(max-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media(max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 480px) { .grid { grid-template-columns: 1fr; } }
 
     /* Button */
     .btn {
       display: inline-block;
       padding: 12px 25px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: #8e24aa;
       color: #fff;
       border-radius: 8px;
       font-weight: bold;
       margin-top: 20px;
       transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(46,196,182,0.3);
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #26b3a7, #5a54e6);
-    }
+    .btn:hover { background: #8e24aa; }
 
     /* Footer */
     footer {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      text-align: center;
       padding: 20px;
-      color: #fff;
+      background: #8e24aa;
+      text-align: center;
+      font-size: 18px;
+      color: #fdfdfd;
     }
 
   </style>
 </head>
-
 <body>
 
-<header>
-  <div class="container nav">
-    <ul class="menu">
-      <li><a href="#">เกี่ยวกับหน่วยงาน</a></li>
-      <li><a href="#">ข่าวประชาสัมพันธ์</a></li>
-      <li><a href="#">ดาวน์โหลด</a></li>
-      <li><a href="#">ติดต่อเรา</a></li>
-    </ul>
-  </div>
+<a href="#main" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+
+<header class="header">
+   <div class="container nav">
+                <nav>
+            <ul class="menu">
+                <li><a href="#about">เกี่ยวกับหน่วยงาน</a></li>
+                <li><a href="#news">ข่าวประชาสัมพันธ์</a></li>
+                <li><a href="#download">ดาว์นโหลด</a></li>
+                                <li><a href="#contact">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
+
+<main id="main">
 
 <section class="page-title">
   <h1>บุคลากรงานพยาบาลผู้ป่วยใน หอผู้ป่วยพิเศษ</h1>
-</section>
+  </section>
 
+<!-- Head of Unit -->
 <section class="section center">
   <h2>หัวหน้าหน่วยงาน</h2>
-  <div class="card">
-    <img class="head-photo" src="../assets/images/2.png">
-    <h3>พว.ขวัญหทัย แสวงงาม</h3>
-    <p>รักษาการแทนหัวหน้างาน</p>
+  <div class="card head-card">
+    <img class="head-photo" src="../assets/images/2.png" alt="หัวหน้าหน่วยงาน" loading="lazy" />
+    <h3>พว.ขวัญหทัย แสวงงาม
+</h3>
+    <p>รักษาการแทนหัวหน้า
+งานการพยาบาลผู้ป่วยใน</p>
+    <div class="contact">
+      <p><span class="material-icons">email</span> head.ipd@up.ac.th</p>
+    </div>
   </div>
 </section>
 
+<!-- Team -->
 <section class="section">
   <h2 class="center">ทีมบุคลากร</h2>
-
   <div class="grid">
-
+    <!-- ตัวอย่างบุคลากร 12 คน -->
     <div class="card">
-      <img class="person-photo" src="../assets/images/6.png">
+      <img class="person-photo" src="../assets/images/6.png" alt="บุคลากร 05" />
       <h3>พว.ปรารถนา อารมสวะ</h3>
       <p>พยาบาลวิชาชีพ</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>admin05@up.ac.th</p>
+      </div>
     </div>
 
     <div class="card">
-      <img class="person-photo" src="../assets/images/12.png">
+      <img class="person-photo" src="../assets/images/12.png" alt="บุคลากร 06" />
       <h3>พว.มัญชุภา ไชยวุฒิ</h3>
       <p>พยาบาลวิชาชีพ</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support06@up.ac.th</p>
+      </div>
     </div>
 
+    <div class="card">
+      <img class="person-photo" src="../assets/images/16.png" alt="บุคลากร 07" />
+      <h3>พว.บุรีรัตน์ อุ่งเกษ</h3>
+      <p>พยาบาลวิชาชีพ</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>nurse07@up.ac.th</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="person-photo" src="../assets/images/18.png" alt="บุคลากร 09" />
+      <h3>พว.นันท์นภัส มากสุข
+</h3>
+      <p>พยาบาลวิชาชีพ</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>assistant09@up.ac.th</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="person-photo" src="../assets/images/19.png" alt="บุคลากร 10" />
+      <h3>พว.พนิตสุภา โครงกาบ</h3>
+      <p>พยาบาลวิชาชีพ</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support10@up.ac.th</p>
+      </div>
+    </div>
+
+     <div class="card">
+      <img class="person-photo" src="../assets/images/8.png" alt="บุคลากร 12" />
+      <h3>นางอังศุชวาล แสงเป๊ก</h3>
+      <p>ผู้ช่วยพยาบาล</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support12@up.ac.th</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="person-photo" src="../assets/images/11.png" alt="บุคลากร 13" />
+      <h3>นางสาวธนิดา กุณา</h3>
+      <p>ผู้ช่วยพยาบาล</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support13@up.ac.th</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="person-photo" src="../assets/images/10.png" alt="บุคลากร 14" />
+      <h3>นางสาวอังคณา วงค์ปัญญา
+</h3>
+      <p>ผู้ช่วยพยาบาล</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support14@up.ac.th</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="person-photo" src="../assets/images/9.png" alt="บุคลากร 15" />
+      <h3>นางสาวกุลธิดา นวลแซ
+</h3>
+      <p>ผู้ช่วยพยาบาล</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support15@up.ac.th</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="person-photo" src="../assets/images/7.png" alt="บุคลากร 16" />
+      <h3>นางสาวจันทกานต์ ฟ้าแลบ</h3>
+      <p>ผู้ช่วยพยาบาล</p>
+      <div class="contact">
+        <p><span class="material-icons">email</span>support16@up.ac.th</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section center">
-  <a href="#" class="btn">← กลับหน้าแรก</a>
+  <a href="../index.html" class="btn">← กลับหน้าแรก</a>
 </section>
 
+</main>
+
 <footer>
-  <p>© 2026 งานพยาบาลผู้ป่วยใน</p>
+  <p>© 2026 งานพยาบาลผู้ป่วยใน โรงพยาบาลมหาวิทยาลัยพะเยา</p>
+  <p>19/1 ม.2 ต.แม่กา อ.เมืองพะเยา จ.พะเยา 56000</p>
 </footer>
 
 </body>
