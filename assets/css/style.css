@@ -30,7 +30,7 @@ body {
 
 /* ================= HEADER ================= */
 .header {
-    background: var(--primary);
+    background: linear-gradient(135deg, #2EC4B6, #6C63FF);
     color: var(--white);
     padding: 15px 0;
     position: sticky;
@@ -69,7 +69,7 @@ body {
 
 /* ================= HERO ================= */
 .hero {
-    background: linear-gradient(to right, #6a1b9a, #8e24aa);
+    background: linear-gradient(135deg, #2EC4B6, #6C63FF);
     color: white;
     text-align: center;
     padding: 80px 20px;
@@ -134,7 +134,7 @@ a {
 
 /* ================= FOOTER ================= */
 .footer {
-    background: #4a148c;
+    background: linear-gradient(135deg, #2EC4B6, #6C63FF);
     color: white;
     text-align: center;
     padding: 25px;
