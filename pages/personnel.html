@@ -1,187 +1,164 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>งานพยาบาลผู้ป่วยใน</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>บุคลากร | งานพยาบาลผู้ป่วยใน</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kodchasan&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Kanit", sans-serif;
-}
+  <style>
+    :root {
+      --primary: #2EC4B6;
+      --secondary: #6C63FF;
+      --soft-bg: #F5FAFF;
+      --text-dark: #333;
+    }
 
-body {
-  overflow-x: hidden;
-}
+    body {
+      font-family: 'Kodchasan', sans-serif;
+      background: var(--soft-bg);
+      margin: 0;
+      color: var(--text-dark);
+    }
 
-/* HEADER */
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: linear-gradient(135deg, #2EC4B6, #6C63FF);
-  z-index: 1000;
-}
+    a { text-decoration: none; }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  color: white;
-}
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 15px 20px;
+    }
 
-.menu {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
+    .container.nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
+    .menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-/* กัน header ทับ */
-body {
-  padding-top: 70px;
-}
+    .menu a {
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-/* HERO */
-.hero {
-  position: relative;
-  height: calc(100vh - 70px);
-  min-height: 500px;
-  overflow: hidden;
-}
+    .menu a:hover {
+      color: #ffdd00;
+      border-bottom: 2px solid #ffdd00;
+    }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
+    /* Page title */
+    .page-title {
+      padding: 30px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border-radius: 0 0 20px 20px;
+    }
 
-.slide.active {
-  opacity: 1;
-}
+    /* Section */
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-}
+    .center { text-align: center; }
 
-/* CONTENT */
-.content {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
-  color: white;
-  max-width: 600px;
-}
+    /* Card */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
 
-.content h1 {
-  font-size: clamp(26px, 5vw, 48px);
-  margin-bottom: 20px;
-  line-height: 1.3;
-}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
 
-.content p {
-  font-size: clamp(14px, 2vw, 18px);
-  margin-bottom: 20px;
-}
+    /* Images */
+    .person-photo {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
 
-/* BUTTON */
-.btn {
-  padding: 10px 20px;
-  border-radius: 30px;
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 14px;
-}
+    .head-photo {
+      width: 220px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
 
-.btn-primary {
-  background: linear-gradient(45deg, #5ec7b7, #f28ca3);
-  color: white;
-}
+    /* Contact */
+    .contact {
+      font-size: 14px;
+      color: #666;
+    }
 
-.btn-outline {
-  border: 1px solid white;
-  color: white;
-}
+    .contact .material-icons {
+      color: var(--primary);
+      vertical-align: middle;
+      margin-right: 5px;
+    }
 
-/* ARROW */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 50%;
-}
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
 
-.arrow.left { left: 15px; }
-.arrow.right { right: 15px; }
+    @media(max-width: 1024px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
 
-/* SECTION */
-.section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
+    @media(max-width: 768px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
 
-.bg-light {
-  background: #f5f5f5;
-}
+    @media(max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+    }
 
-/* FOOTER */
-.footer {
- background: linear-gradient(135deg, #2EC4B6, #6C63FF);
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(46,196,182,0.3);
+    }
 
-/* 📱 MOBILE */
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-    gap: 10px;
-  }
+    .btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #26b3a7, #5a54e6);
+    }
 
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
 
-  .content {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  .arrow {
-    display: none;
-  }
-}
-</style>
+  </style>
 </head>
 
 <body>
@@ -227,52 +204,6 @@ body {
       <p>พยาบาลวิชาชีพ</p>
     </div>
 
-    <div class="card">
-      <img class="person-photo" src="../assets/images/16.png">
-      <h3>พว.บุรีรัตน์ อุ่งเกษ</h3>
-      <p>พยาบาลวิชาชีพ</p>
-    </div>
-
-    <div class="card">
-      <img class="person-photo" src="../assets/images/18.png">
-      <h3>พว.นันท์นภัส มากสุข
-      <p>พยาบาลวิชาชีพ</p>
-    </div>
-
-    <div class="card">
-      <img class="person-photo" src="../assets/images/19.png">
-      <h3>พว.พนิตสุภา โครงกาบ</h3>
-      <p>พยาบาลวิชาชีพ</p>
-    </div>
-
-     <div class="card">
-      <img class="person-photo" src="../assets/images/8.png">
-      <h3>นางอังศุชวาล แสงเป๊ก</h3>
-      <p>ผู้ช่วยพยาบาล</p>
-    </div>
-
-    <div class="card">
-      <img class="person-photo" src="../assets/images/11.png">
-      <h3>นางสาวธนิดา กุณา</h3>
-      <p>ผู้ช่วยพยาบาล</p>
-    </div>
-
-    <div class="card">
-      <img class="person-photo" src="../assets/images/10.png">
-      <h3>นางสาวอังคณา วงค์ปัญญา
-      <p>ผู้ช่วยพยาบาล</p>
-    </div>
-
-    <div class="card">
-      <img class="person-photo" src="../assets/images/9.png">
-      <h3>นางสาวกุลธิดา นวลแซ
-    </div>
-
-    <div class="card">
-      <img class="person-photo" src="../assets/images/7.png">
-      <h3>นางสาวจันทกานต์ ฟ้าแลบ</h3>
-      <p>ผู้ช่วยพยาบาล</p>
-    </div>
   </div>
 </section>
 
