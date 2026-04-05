@@ -28,7 +28,7 @@
     /* Header */
     header {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      padding: 15px 20px;
+      padding: 8px 15px
     }
 
     .container.nav {
@@ -47,7 +47,7 @@
 
     .menu a {
       color: #fff;
-      font-weight: 500;
+      font-weight: 200;
       transition: 0.3s;
     }
 
@@ -58,7 +58,7 @@
 
     /* Page title */
     .page-title {
-      padding: 30px 20px;
+      padding: 15px 20px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
       border-radius: 0 0 20px 20px;
@@ -163,14 +163,16 @@
 
 <body>
 
-<header>
-  <div class="container nav">
-    <ul class="menu">
-      <li><a href="#">เกี่ยวกับหน่วยงาน</a></li>
-      <li><a href="#">ข่าวประชาสัมพันธ์</a></li>
-      <li><a href="#">ดาวน์โหลด</a></li>
-      <li><a href="#">ติดต่อเรา</a></li>
+<header class="header">
+   <div class="container nav">
+                <nav>
+            <ul class="menu">
+                <li><a href="#about">เกี่ยวกับหน่วยงาน</a></li>
+                <li><a href="#news">ข่าวประชาสัมพันธ์</a></li>
+                <li><a href="#download">ดาว์นโหลด</a></li>
+                                <li><a href="#contact">ติดต่อเรา</a></li>
     </ul>
+
   </div>
 </header>
 
@@ -208,7 +210,7 @@
 </section>
 
 <section class="section center">
-  <a href="#" class="btn">← กลับหน้าแรก</a>
+  <a href="../index.html" class="btn">← กลับหน้าแรก</a>
 </section>
 
 <footer>
